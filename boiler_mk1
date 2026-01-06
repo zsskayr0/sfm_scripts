@@ -1,0 +1,14 @@
+every 2 ticks do
+-- Transfer water from WaterGen to Boiler bottom
+input fluid::water from WaterGen TOP SIDE
+output fluid::water to Boiler BOTTOM SIDE
+-- Transfer steam from Boiler top to SteamTank
+input gas:mekanism:steam from Boiler TOP SIDE
+output gas:mekanism:steam to TankSteam BOTTOM SIDE
+-- Transfer heated sodium from SodiumTankH top to Boiler hot input
+input gas:mekanism:superheated_sodium from TankSodiumH BOTTOM SIDE
+output gas:mekanism:superheated_sodium to EACH Boiler BOTTOM SIDE
+-- Transfer cooled sodium from Boiler top to SodiumTankC
+input gas:mekanism:sodium from Boiler NORTH SIDE
+output gas:mekanism:sodium to TankSodiumC BOTTOM SIDE
+end
